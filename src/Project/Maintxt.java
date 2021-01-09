@@ -1,9 +1,26 @@
-package Project;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import java.io.*;
-import java.awt.event.*;
+package project;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+@SuppressWarnings("serial")
 public class Maintxt extends JFrame {
      String LEVEL;
      int NUMBER = 0;

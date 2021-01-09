@@ -1,4 +1,4 @@
-package Test;
+package test;
 import java.sql.*;
 public class ConnectTestMySQL {
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  

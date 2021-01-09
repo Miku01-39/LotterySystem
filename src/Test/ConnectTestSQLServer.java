@@ -1,7 +1,8 @@
-package Test;
+package test;
 import java.sql.*;
 public class ConnectTestSQLServer {
-	  public static void main(String [] args)
+	  @SuppressWarnings("unused")
+	public static void main(String [] args)
 	  {
 	      String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	      String dbURL="jdbc:sqlserver://0.0.0.0:1443;DatabaseName=test";//这里的test是数据库名称

@@ -10,15 +10,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 /*import javax.swing.JToolBar;*/
-
+@SuppressWarnings("serial")
 public class MainFrame extends JFrame{
-
     private static final JDesktopPane DESKTOP_PANE = new JDesktopPane();
-
     public MainFrame() {
         super("这是主窗体");
         setSize(640, 480);
-
         //菜单设置
         JMenuBar menuBar = new JMenuBar();
         this.setJMenuBar(menuBar);
@@ -37,15 +34,12 @@ public class MainFrame extends JFrame{
         JMenu menu2 = new JMenu("菜单2");
         menuBar.add(menu1);
         menuBar.add(menu2);
-
         this.getContentPane().add(DESKTOP_PANE);
         this.setVisible(true);
     }
-
     public static void addIFame(JInternalFrame iframe) { // 添加子窗体的方法
 		DESKTOP_PANE.add(iframe);
 	}
-
     public static void main(String[] args) {
         new MainFrame();
     }

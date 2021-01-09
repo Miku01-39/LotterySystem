@@ -1,9 +1,8 @@
 package example;
 /*import javax.swing.JButton;*/
 import javax.swing.JInternalFrame;
-
+@SuppressWarnings("serial")
 public class InternalFrame extends JInternalFrame{
-
     public InternalFrame() {
         super();
         setClosable(true);

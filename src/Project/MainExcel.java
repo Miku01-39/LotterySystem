@@ -1,14 +1,26 @@
-package Project;
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.awt.event.*;
+package project;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+import jxl.Sheet;
+import jxl.Workbook;
+@SuppressWarnings("serial")
 public class MainExcel extends JFrame {
 	 String driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver";
      String dbURL="jdbc:sqlserver://0.0.0.0:1443;DatabaseName=test";//这里的test是数据库名称
@@ -166,11 +178,37 @@ public class MainExcel extends JFrame {
             }
         }
     }
+    //从Excel文件中导入
+    class ExcelImport {
+    	void Import(String[] args) {
+    		ExcelImport excelImport = new ExcelImport();
+    		excelImport.getAllByExcel("E:\\编程文件\\Java\\课程设计\\Excel\\participant.xls");
+    	}
+    	void getAllByExcel(String file) {
+    		try {
+    			Workbook rwb = Workbook.getWorkbook(new File(file));
+    			Sheet rs = rwb.getSheet(0);// 或者rwb.getSheet(0)
+    			int clos = rs.getColumns();// 得到所有的列
+    			int rows = rs.getRows();// 得到所有的行
+    			for (int i = 1; i < rows; i++) {
+    				for (int j = 0; j < clos; j++) {
+    					// 第一个是列数，第二个是行数
+    					String name = rs.getCell(j, i).getContents();
+    					nameList.add(name);
+    				}
+    			}
+    		} catch (Exception e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+    }
     //子类结束
     //构造器
     public MainExcel() {
         this.initFrame();
         this.importName();
+        new ExcelImport();
         level.addKeyListener(new LevelEvent());
         number.addKeyListener(new NumberEvent());
         start.addMouseListener(new StartEvent());
@@ -213,20 +251,8 @@ public class MainExcel extends JFrame {
         frame.setVisible(true);
     }
     void importName() {
-    	Statement sql;
-	    ResultSet rs;
-		try {
-			Connection dbConn=DriverManager.getConnection(dbURL,userName,userPwd);
-			sql = dbConn.createStatement();
-			rs = sql.executeQuery("SELECT* FROM 参与人池");//SQL查询语句
-			while (rs.next()) {
-				String name = rs.getString(1);
-				nameList.add(name);
-			}
-				dbConn.close();
-			} catch (SQLException e) {
-				System.out.println("导入失败！");
-			}
+    	ExcelImport excelImport = new ExcelImport();
+		excelImport.getAllByExcel("E:\\编程文件\\Java\\课程设计\\LotterySystem\\participant.xls");
     }
     public static void main(String[] args) {
         new MainExcel();

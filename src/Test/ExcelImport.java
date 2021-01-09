@@ -1,19 +1,13 @@
-package Test;
+package test;
 import java.io.File;
 import jxl.Sheet;
 import jxl.Workbook;
 public class ExcelImport {
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 		ExcelImport excelImport = new ExcelImport();
 		excelImport.getAllByExcel("E:\\编程文件\\Java\\课程设计\\Excel\\participant.xls");
 	}
-	/*
-	 * 查询指定目录中电子表格中所有的数据
-	 * 
-	 * @param file
-	 *            文件完整路径
-	 * @return
-	 */
 	public static void getAllByExcel(String file) {
 		try {
 			Workbook rwb = Workbook.getWorkbook(new File(file));

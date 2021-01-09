@@ -1,4 +1,4 @@
-package Test;
+package example;
 import java.util.Scanner;
 public class Demo1 {
 /*幸运抽奖*/
@@ -11,6 +11,7 @@ public static void main(String[] args) {
 	boolean isLogin = false; // 标识是否登录
 	int max = 9999;
 	int min = 1000;
+	@SuppressWarnings("resource")
 	Scanner input = new Scanner(System.in);
 	do {
 		System.out.println("*****欢迎进入抽奖系统*****");

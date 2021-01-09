@@ -1,4 +1,4 @@
-package Project;
+package project;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+@SuppressWarnings("serial")
 public class Interface extends JFrame {
 	class Logintxt implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
@@ -35,7 +36,7 @@ public Interface() {
 		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
 		new JPanel();
 		f.setLayout(new BorderLayout(30,30));
-		JLabel title =new JLabel("欢迎进入年会抽奖系统",JLabel.CENTER);
+		JLabel title =new JLabel("欢迎进入年会抽奖系统!",JLabel.CENTER);
 		f.add(title,BorderLayout.NORTH);
 		title.setFont(new Font("楷体", Font.BOLD, 20));
 		JButton txt =new JButton("从txt中导入");

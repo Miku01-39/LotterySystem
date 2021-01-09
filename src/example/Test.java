@@ -5,6 +5,7 @@ import java.util.*;
 import java.io.*;
 import java.awt.event.*;
 import java.awt.event.MouseAdapter;
+@SuppressWarnings("serial")
 class Test extends JFrame {
     private String LEVELNUM;
     private int NUMBER = 0;
